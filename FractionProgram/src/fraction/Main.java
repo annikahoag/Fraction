@@ -19,7 +19,7 @@ public class Main {
 			System.out.println("Please enter the first fraction's numerator:");
 			numerator1 = myObj.nextDouble();
 			
-			//take in input for numerator1 and error check, loop until no error
+			//take input for numerator1 and error check, loop until no error
 			while (error==false) {
 				error = fraction1.errorCheckInt(numerator1);
 				if (error == false) {

@@ -14,7 +14,7 @@ public class Fraction {
 		
 	}
 	
-	//error check for doubles 
+	//method to error check for doubles 
 	public boolean errorCheckInt(double num) {
 		int numInt;
 		numInt = (int) num;
