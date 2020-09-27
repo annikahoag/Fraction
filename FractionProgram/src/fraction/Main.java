@@ -15,6 +15,8 @@ public class Main {
 		boolean error=false, error2=false;
 		int numProd, denProd;
 		
+		int printType, wholeNumber, numFinal;
+		
 		
 			System.out.println("Please enter the first fraction's numerator:");
 			numerator1 = myObj.nextDouble();
@@ -98,12 +100,43 @@ public class Main {
 			denProd = fraction1.getDenominator();
 			
 			
-			if (denProd != 1) {
-				System.out.println(numProd + "/" + denProd);
-			}else {
-				System.out.println(numProd);
+			
+			//Extra Credit- printing as mixed number or improper fraction
+			System.out.println("How would you like your answer to be printed? "
+					+ "Type 1 for mixed number, type 2 for improper.");
+			printType = myObj.nextInt();
+			
+			
+			while (printType !=1 && printType !=2) {
+				System.out.println("Error. Please type only 1 or 2.");
+				System.out.println("How would you like your answer to be printed? "
+						+ "Type 1 for mixed number, type 2 for improper.");
+				printType = myObj.nextInt();
 			}
 			
+			if (printType == 1) {
+				 fraction1.makeMixed(numProd, denProd);
+				 wholeNumber=fraction1.getWholeNumber();
+				 numFinal=fraction1.getNewNum();
+
+				 if (numFinal==0) {
+					 System.out.println(wholeNumber);
+				 }else if (wholeNumber==0) {
+					 System.out.println(numFinal + "/" + denProd);
+				 }else {
+					 System.out.println(wholeNumber + " " + numFinal + "/" + denProd);
+				 }
+				 
+				
+			}else if (printType == 2) {
+				
+				if (denProd != 1) {
+					System.out.println(numProd + "/" + denProd);
+				}else {
+					System.out.println(numProd);
+				}
+				
+			}//end of else if
 			
 		
 			

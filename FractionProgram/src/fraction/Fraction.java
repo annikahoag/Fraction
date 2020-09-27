@@ -6,11 +6,15 @@ public class Fraction {
 	//instance variables
 	public int numeratorProduct;
 	public int denominatorProduct;
+	int wholeNumber;
+	int newNum;
 	
 	//constructor
 	public Fraction() {
 		numeratorProduct=0;
 		denominatorProduct=0;
+		wholeNumber=0;
+		newNum=0;
 		
 	}
 	
@@ -46,17 +50,20 @@ public class Fraction {
 		smallest = this.smallest();
 		gcf = smallest;
 		
-		for (int i = smallest; i<1; i--) {
-			if ( (numeratorProduct % gcf == 0) && (denominatorProduct % gcf == 0) ) {
-				gcf = i;
-				break;
-			}else {
-				gcf = i;
+		if (gcf<numeratorProduct && gcf<denominatorProduct) {
+			for (int i = smallest; i<1; i--) {
+				if ( (numeratorProduct % gcf == 0) && (denominatorProduct % gcf == 0) ) {
+					gcf = i;
+					break;
+				}else {
+					gcf = i;
+				}
 			}
+			
+			numeratorProduct = numeratorProduct / gcf;
+			denominatorProduct = denominatorProduct / gcf;
 		}
 		
-		numeratorProduct = numeratorProduct / gcf;
-		denominatorProduct = denominatorProduct / gcf;
 		
 	}
 	
@@ -80,6 +87,19 @@ public class Fraction {
 	//returns the final denominator
 	public int getDenominator() {
 		return denominatorProduct;
+	}
+	
+	public void makeMixed(int num, int den) {
+		wholeNumber = num/den;
+		newNum = num % den;
+	}
+	
+	public int getWholeNumber() {
+		return wholeNumber;
+	}
+	
+	public int getNewNum() {
+		return newNum;
 	}
 	
 	
