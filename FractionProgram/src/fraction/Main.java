@@ -14,7 +14,6 @@ public class Main {
 		double denominator2;
 		boolean error=false, error2=false;
 		int numProd, denProd;
-		
 		int printType, wholeNumber, numFinal;
 		
 		
@@ -93,20 +92,24 @@ public class Main {
 			}
 			
 			
-			
+			//calls the method to reduce the fraction
 			fraction1.reduceFraction((int) numerator1, (int) denominator1, (int) numerator2, (int) denominator2);
 			
-			numProd = fraction1.getNumerator();
-			denProd = fraction1.getDenominator();
+			
+			//set final numerator and denominators
+			numProd = fraction1.getNumeratorProduct();
+			denProd = fraction1.getDenominatorProduct();
 			
 			
 			
-			//Extra Credit- printing as mixed number or improper fraction
+			//Extra Credit- printing as mixed number or improper fraction:
+			
+			//Take in input for how the fraction will be printed 
 			System.out.println("How would you like your answer to be printed? "
 					+ "Type 1 for mixed number, type 2 for improper.");
 			printType = myObj.nextInt();
 			
-			
+			//loop to error check for numbers that aren't 1 or 2
 			while (printType !=1 && printType !=2) {
 				System.out.println("Error. Please type only 1 or 2.");
 				System.out.println("How would you like your answer to be printed? "
@@ -114,6 +117,7 @@ public class Main {
 				printType = myObj.nextInt();
 			}
 			
+			//calls method to create and print mixed number
 			if (printType == 1) {
 				 fraction1.makeMixed(numProd, denProd);
 				 wholeNumber=fraction1.getWholeNumber();
@@ -127,7 +131,8 @@ public class Main {
 					 System.out.println(wholeNumber + " " + numFinal + "/" + denProd);
 				 }
 				 
-				
+			
+			//prints improper fraction
 			}else if (printType == 2) {
 				
 				if (denProd != 1) {

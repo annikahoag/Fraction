@@ -50,12 +50,13 @@ public class Fraction {
 		smallest = this.smallest();
 		gcf = smallest;
 		
-		if (gcf<numeratorProduct && gcf<denominatorProduct) {
-			for (int i = smallest; i<1; i--) {
+		if ( (gcf<=numeratorProduct) && (gcf<=denominatorProduct) ) {
+			for (int i = smallest; i>=1; i--) {
+				gcf = i;
 				if ( (numeratorProduct % gcf == 0) && (denominatorProduct % gcf == 0) ) {
 					gcf = i;
 					break;
-				}else {
+				}else{
 					gcf = i;
 				}
 			}
@@ -80,24 +81,29 @@ public class Fraction {
 	}
 	
 	//returns the final numerator
-	public int getNumerator() {
+	public int getNumeratorProduct() {
 		return numeratorProduct;
 	}
 	
 	//returns the final denominator
-	public int getDenominator() {
+	public int getDenominatorProduct() {
 		return denominatorProduct;
 	}
 	
+	//EXTRA CREDIT:
+	
+	//makes a whole number and the numerator for the mixed number
 	public void makeMixed(int num, int den) {
 		wholeNumber = num/den;
 		newNum = num % den;
 	}
 	
+	//returns the whole number of the mixed number
 	public int getWholeNumber() {
 		return wholeNumber;
 	}
 	
+	//returns the numerator of the mixed number
 	public int getNewNum() {
 		return newNum;
 	}
